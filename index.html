@@ -48,30 +48,6 @@
             margin: 0 auto;
         }
         
-        .filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .filter-btn {
-            background: #161b22;
-            border: 1px solid #30363d;
-            color: #c9d1d9;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background: #58a6ff;
-            color: #0d1117;
-            border-color: #58a6ff;
-        }
-        
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -151,75 +127,6 @@
             border: 1px solid #30363d;
         }
         
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .btn {
-            padding: 8px 15px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .btn-primary {
-            background: #1f6feb;
-            color: white;
-            border: 1px solid #1f6feb;
-        }
-        
-        .btn-primary:hover {
-            background: #388bfd;
-        }
-        
-        .btn-outline {
-            border: 1px solid #30363d;
-            color: #c9d1d9;
-        }
-        
-        .btn-outline:hover {
-            background: #21262d;
-            border-color: #8b949e;
-        }
-        
-        .featured-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #ff7b72;
-            color: #0d1117;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-        
-        .cybersecurity-badge {
-            background: #ff7b72;
-            color: #0d1117;
-        }
-        
-        .data-analysis-badge {
-            background: #7ee787;
-            color: #0d1117;
-        }
-        
-        .development-badge {
-            background: #a371f7;
-            color: #0d1117;
-        }
-        
-        .research-badge {
-            background: #ffa657;
-            color: #0d1117;
-        }
-        
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
@@ -227,12 +134,6 @@
             
             h1 {
                 font-size: 2rem;
-            }
-            
-            .filters {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: 10px;
             }
         }
         
@@ -278,11 +179,6 @@
                             <span class="tech-tag">Git</span>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-file-pdf"></i> View Documentation
-                        </a>
-                    </div>
                 </div>
             </div>
             
@@ -307,11 +203,6 @@
                             <span class="tech-tag">Banner Grabbing</span>
                             <span class="tech-tag">Ethical Hacking</span>
                         </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
@@ -338,11 +229,6 @@
                             <span class="tech-tag">Netstat</span>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-file-pdf"></i> View Report
-                        </a>
-                    </div>
                 </div>
             </div>
             
@@ -364,11 +250,6 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Regex</span>
                         </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
@@ -394,15 +275,10 @@
                             <span class="tech-tag">Matplotlib</span>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-file-pdf"></i> View Analysis
-                        </a>
-                    </div>
                 </div>
             </div>
             
-            <!-- Project 4 -->
+            <!-- Project 6 -->
             <div class="project-card" data-category="data-analysis">
                 <div class="project-header">
                     <h2 class="project-title">Data Analysis on Electric Vehicle Manufacturers</h2>
@@ -426,15 +302,10 @@
                             <span class="tech-tag">Python</span>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-file-pdf"></i> View Analysis
-                        </a>
-                    </div>
                 </div>
             </div>
             
-            <!-- Project 5 -->
+            <!-- Project 7 -->
             <div class="project-card" data-category="development">
                 <div class="project-header">
                     <h2 class="project-title">Deploying a Minecraft Server with ProxMox and Docker</h2>
@@ -455,15 +326,10 @@
                             <span class="tech-tag">Linux</span>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-file-pdf"></i> View Documentation
-                        </a>
-                    </div>
                 </div>
             </div>
             
-            <!-- Project 6 -->
+            <!-- Project 8 -->
             <div class="project-card" data-category="cybersecurity">
                 <div class="project-header">
                     <h2 class="project-title">Penetration Testing Report</h2>
@@ -483,15 +349,10 @@
                             <span class="tech-tag">Metasploit</span>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-file-pdf"></i> View Report
-                        </a>
-                    </div>
                 </div>
             </div>
             
-            <!-- Project 7 -->
+            <!-- Project 9 -->
             <div class="project-card" data-category="research">
                 <div class="project-header">
                     <h2 class="project-title">Research Paper (AI in Cybersecurity)</h2>
@@ -509,15 +370,10 @@
                             <span class="tech-tag">Security Research</span>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-file-word"></i> View Paper
-                        </a>
-                    </div>
                 </div>
             </div>
             
-            <!-- Project 8 -->
+            <!-- Project 10 -->
             <div class="project-card" data-category="development">
                 <div class="project-header">
                     <h2 class="project-title">Calculator (C#)</h2>
@@ -537,41 +393,13 @@
                             <span class="tech-tag">Event Driven Programming</span>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
+        
+        <footer>
+            <p>Portfolio showcasing cybersecurity, data analysis, and development projects</p>
+        </footer>
     </div>
-
-    <script>
-        // Filter functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    const filterValue = button.getAttribute('data-filter');
-                    
-                    projectCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 </html>
