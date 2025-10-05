@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Portfolio - Cybersecurity & Data Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            border-bottom: 1px solid #30363d;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            color: #58a6ff;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #58a6ff, #8e96f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #8b949e;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            background: #161b22;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #58a6ff;
+            color: #0d1117;
+            border-color: #58a6ff;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .project-card {
+            background: #161b22;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #30363d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: #58a6ff;
+        }
+        
+        .project-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #0d2b3e 0%, #161b22 100%);
+            color: white;
+            position: relative;
+            border-bottom: 1px solid #30363d;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: #58a6ff;
+        }
+        
+        .project-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-bottom: 10px;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-description {
+            margin-bottom: 20px;
+            color: #8b949e;
+            line-height: 1.5;
+        }
+        
+        .skills-container {
+            margin-bottom: 20px;
+        }
+        
+        .skills-label {
+            font-size: 0.9rem;
+            color: #58a6ff;
+            margin-bottom: 8px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tech-tag {
+            background: #0d2b3e;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #7ee787;
+            font-weight: 500;
+            border: 1px solid #30363d;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn-primary {
+            background: #1f6feb;
+            color: white;
+            border: 1px solid #1f6feb;
+        }
+        
+        .btn-primary:hover {
+            background: #388bfd;
+        }
+        
+        .btn-outline {
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+        }
+        
+        .btn-outline:hover {
+            background: #21262d;
+            border-color: #8b949e;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff7b72;
+            color: #0d1117;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .cybersecurity-badge {
+            background: #ff7b72;
+            color: #0d1117;
+        }
+        
+        .data-analysis-badge {
+            background: #7ee787;
+            color: #0d1117;
+        }
+        
+        .development-badge {
+            background: #a371f7;
+            color: #0d1117;
+        }
+        
+        .research-badge {
+            background: #ffa657;
+            color: #0d1117;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vashrith's Project Portfolio</h1>
+            <p class="subtitle">Master's Student in Cyber Analytics and Operations at Penn State</p>
+        </header>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card" data-category="development">
+                <div class="project-header">
+                    <h2 class="project-title">Creating a CI/CD Pipeline</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Sep 2025
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Completed a project to build a fully functional CI/CD pipeline from the ground up, learning and applying core DevOps and AWS skills along the way. Set up secure AWS environments and IAM users, configured EC2 instances for development integrated with VS Code via SSH, developed a Java web application using Maven and Amazon Corretto, managed dependencies with CodeArtifact, automated builds using CodeBuild, deployed applications with CodeDeploy, and streamlined infrastructure provisioning with CloudFormation.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">AWS EC2</span>
+                            <span class="tech-tag">CodeArtifact</span>
+                            <span class="tech-tag">CodeBuild</span>
+                            <span class="tech-tag">CodeDeploy</span>
+                            <span class="tech-tag">CloudFormation</span>
+                            <span class="tech-tag">Maven</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-pdf"></i> View Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card" data-category="cybersecurity">
+                <div class="project-header">
+                    <h2 class="project-title">Network Vulnerability Scanner</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Sep 2025
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Developed a Python vulnerability scanner that identifies vulnerable network services by analyzing service banners and comparing them to a database of known vulnerable software versions. Features multi-port scanning (FTP, SSH, HTTP, HTTPS, SMTP), banner grabbing and service identification, vulnerability database matching system, configurable target IP and port settings, error handling and timeout management, and safe testing environment with local test servers. Designed specifically for authorized penetration testing and education purposes.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Network Security</span>
+                            <span class="tech-tag">Vulnerability Assessment</span>
+                            <span class="tech-tag">Banner Grabbing</span>
+                            <span class="tech-tag">Ethical Hacking</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card" data-category="cybersecurity">
+                <div class="project-header">
+                    <h2 class="project-title">Creating Network Telemetry Using Malware</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Jul 2025
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Created a hands-on lab to generate and analyze malware telemetry in a controlled environment. Workflow included reconnaissance with Nmap, payload generation with msfvenom, and handler validation via Metasploit, delivery via a temporary Python HTTP server, endpoint validation with netstat, and deep forensic analysis in Splunk (Sysmon) to map process activity, network connections, and command-execution traces. Produced actionable insights for detection tuning and incident response improvements.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Splunk</span>
+                            <span class="tech-tag">Sysmon</span>
+                            <span class="tech-tag">Nmap</span>
+                            <span class="tech-tag">Metasploit</span>
+                            <span class="tech-tag">Netstat</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-pdf"></i> View Report
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card" data-category="development">
+                <div class="project-header">
+                    <h2 class="project-title">Password Policy Enforcer</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Jun 2025
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Developed a Python-based password validation tool enforcing strong security rules, including minimum length, uppercase/lowercase letters, digits, and special characters, using regular expressions for input validation.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Regex</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card" data-category="data-analysis">
+                <div class="project-header">
+                    <h2 class="project-title">NBA Data Analysis</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Apr 2025
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Built a data-driven analysis comparing the careers of Stephen Curry and LeBron James using the nba-api, Pandas, NumPy, and Matplotlib. Retrieved player career statistics directly from the NBA API and transformed raw data into structured DataFrames. Processed and calculated advanced per-game metrics and designed clear visualizations to highlight career trends.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-pdf"></i> View Analysis
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card" data-category="data-analysis">
+                <div class="project-header">
+                    <h2 class="project-title">Data Analysis on Electric Vehicle Manufacturers</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Dec 2024
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Conducted a comprehensive data analysis on the U.S. Electric Vehicle Population Dataset to explore patterns among the top 5 manufacturers. Cleaned and transformed raw CSV data, used pandas, matplotlib, and seaborn for EDA. Found clear correlation between vehicle price and range, with Tesla consistently outperforming competitors.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Data Cleaning</span>
+                            <span class="tech-tag">Data Transformation</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Seaborn</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-pdf"></i> View Analysis
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card" data-category="development">
+                <div class="project-header">
+                    <h2 class="project-title">Deploying a Minecraft Server with ProxMox and Docker</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Apr 2024
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Configured and deployed a containerized Minecraft server on an Ubuntu virtual machine using ProxMox and Docker. Created and configured a virtual machine in ProxMox, installed Docker Engine on Ubuntu, designed docker-compose.yml, and launched the containerized service with persistent storage and networking.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Virtual Machines</span>
+                            <span class="tech-tag">Proxmox</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-pdf"></i> View Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card" data-category="cybersecurity">
+                <div class="project-header">
+                    <h2 class="project-title">Penetration Testing Report</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Apr 2024
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Performed a penetration test report on a sample company 'XYZCorp HQ'. Network scanning and exploit validation revealed two critical issues: a high-severity vsftpd 2.3.4 backdoor and a medium-severity ssh_enumusers condition. Provided recommendations for remediation including service upgrades, MFA implementation, and improved logging.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Kali Linux</span>
+                            <span class="tech-tag">Nmap</span>
+                            <span class="tech-tag">Metasploit</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-pdf"></i> View Report
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 7 -->
+            <div class="project-card" data-category="research">
+                <div class="project-header">
+                    <h2 class="project-title">Research Paper (AI in Cybersecurity)</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Nov 2023
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Conducted an in-depth research study on the impact of artificial intelligence in cybersecurity, exploring both benefits and potential risks. Analyzed how AI enhances threat detection and malware identification while examining ethical challenges. Proposed preventative measures including global cooperation and ethical AI governance frameworks.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Security Research</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-word"></i> View Paper
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 8 -->
+            <div class="project-card" data-category="development">
+                <div class="project-header">
+                    <h2 class="project-title">Calculator (C#)</h2>
+                    <div class="project-date">
+                        <i class="far fa-calendar"></i> Apr 2023
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Developed a desktop calculator application using C# and Windows Forms with support for both basic arithmetic operations and advanced functions. Implemented operations including addition, subtraction, multiplication, division, square, cube, reciprocal, and square root. Designed an intuitive UI with input validation and error prevention.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skills-label">Skills:</div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">WinForms</span>
+                            <span class="tech-tag">Event Driven Programming</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
